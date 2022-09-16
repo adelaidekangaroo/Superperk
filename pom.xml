@@ -6,6 +6,13 @@
     <groupId>super.perk</groupId>
     <artifactId>pipboy</artifactId>
     <version>1.0</version>
+    <developers>
+        <developer>
+            <name>Sergey Simonov</name>
+            <url>https://github.com/adelaidekangaroo</url>
+            <organization>SuperPerk</organization>
+        </developer>
+    </developers>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
