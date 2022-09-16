@@ -17,20 +17,25 @@
         <java.version>18</java.version>
         <spring.boot.maven.plugin.version>2.7.1</spring.boot.maven.plugin.version>
         <maven.enforcer.plugin.version>3.1.0</maven.enforcer.plugin.version>
+        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
     </properties>
 
     <dependencyManagement>
     </dependencyManagement>
 
     <dependencies>
+        <!-- MAIN SPRING BOOT STARTER -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <!-- /MAIN SPRING BOOT STARTER -->
+        <!-- TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <!-- /TEST -->
     </dependencies>
 
     <build>
@@ -59,6 +64,17 @@
                 </configuration>
             </plugin>
             <!-- /ENFORCER PLUGIN -->
+            <!-- COMPILER PLUGIN -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <!-- /COMPILER PLUGIN -->
         </plugins>
     </build>
 
