@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@SpringBootTest // for load context
+@ActiveProfiles("test") // properties for application-test.properties
 class ApplicationTest {
     @Test
-    void contextLoaded() {
+    void should_context_loaded() {
     }
 }
