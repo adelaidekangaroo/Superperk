@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest // for load context
-@ActiveProfiles("test") // properties for application-test.properties
+@ActiveProfiles("test") // properties from application-test.properties
 class ApplicationTest {
     @Test
     void should_context_loaded() {

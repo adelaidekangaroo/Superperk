@@ -13,7 +13,7 @@ import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest // for load context
 @Testcontainers // manage life cycle testcontainers
-@ActiveProfiles("test") // properties for application-test.properties
+@ActiveProfiles("test") // properties from application-test.properties
 class SpecialRepositoryTest {
 
     private static final DockerImageName POSTGRES_IMAGE_NAME = DockerImageName.parse("postgres:14.5");
