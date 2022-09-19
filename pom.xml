@@ -51,6 +51,16 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <!-- /MAIN SPRING BOOT STARTER -->
+        <!-- DB -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <!-- DB -->
         <!-- TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -61,6 +71,15 @@
             <groupId>org.testcontainers</groupId>
             <artifactId>testcontainers</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
         <!-- /TEST -->
     </dependencies>
