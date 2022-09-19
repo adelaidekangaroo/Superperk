@@ -87,7 +87,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope> <!-- exclude at build time -->
+            <scope>provided</scope> <!-- exclude after compile phase -->
         </dependency>
         <!-- /UTIL -->
     </dependencies>
