@@ -65,28 +65,29 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <scope>test</scope> <!-- exclude after testing phase -->
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>testcontainers</artifactId>
-            <scope>test</scope>
+            <scope>test</scope> <!-- exclude after testing phase -->
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
+            <scope>test</scope> <!-- exclude after testing phase -->
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
+            <scope>test</scope> <!-- exclude after testing phase -->
         </dependency>
         <!-- /TEST -->
         <!-- UTIL -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <scope>provided</scope> <!-- exclude at build time -->
         </dependency>
         <!-- /UTIL -->
     </dependencies>
