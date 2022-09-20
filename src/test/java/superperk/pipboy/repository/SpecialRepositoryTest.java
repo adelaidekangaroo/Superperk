@@ -84,19 +84,16 @@ class SpecialRepositoryTest extends AbstractContainerTest {
     }
 
     @Test
-    @Transactional
-        // for roll back the changes made in tests
+    @Transactional /* for roll back the changes made in tests */
     void should_return_saved_special() {
         var expected = PREPARED_FOR_CREATE_SPECIAL;
         specialRepository.save(expected);
-        var actual = specialRepository.findById(expected.getId())
-                .orElseThrow();
+        var actual = specialRepository.findById(expected.getId()).orElseThrow();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    @Transactional
-        // for roll back the changes made in tests
+    @Transactional /* for roll back the changes made in tests */
     void should_remove_special_by_id() {
         specialRepository.deleteById(STRENGTH.getId());
         var actual = specialRepository.findAll();
