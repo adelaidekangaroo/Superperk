@@ -14,10 +14,10 @@ import org.testcontainers.utility.DockerImageName;
 public class AbstractContainerTest {
 
     protected static final PostgreSQLContainer<?> POSTGRES_CONTAINER;
-    private static final DockerImageName POSTGRES_IMAGE_NAME = DockerImageName.parse("postgres:14.5");
 
     static {
-        POSTGRES_CONTAINER = new PostgreSQLContainer<>(POSTGRES_IMAGE_NAME);
+        var postgresDockerImage = DockerImageName.parse("postgres:14.5");
+        POSTGRES_CONTAINER = new PostgreSQLContainer<>(postgresDockerImage);
         POSTGRES_CONTAINER.start();
     }
 
