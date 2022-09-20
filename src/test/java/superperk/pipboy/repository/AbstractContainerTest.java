@@ -2,16 +2,13 @@ package superperk.pipboy.repository;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
+import superperk.pipboy.ApplicationTest;
 
-@SpringBootTest // for load context
-@ActiveProfiles("test") // properties from application-test.properties
-public class AbstractContainerTest {
+public class AbstractContainerTest extends ApplicationTest {
 
     protected static final PostgreSQLContainer<?> POSTGRES_CONTAINER;
 
