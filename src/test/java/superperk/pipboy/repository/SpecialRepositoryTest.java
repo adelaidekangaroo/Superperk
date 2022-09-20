@@ -1,20 +1,15 @@
 package superperk.pipboy.repository;
 
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
+import org.junit.Rule;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.utility.DockerImageName;
+import org.springframework.transaction.annotation.Transactional;
+import superperk.pipboy.model.Special;
 
-@SpringBootTest // for load context
-@Testcontainers // manage life cycle testcontainers
-@ActiveProfiles("test") // properties from application-test.properties
-class SpecialRepositoryTest {
+import java.util.List;
 
 class SpecialRepositoryTest extends AbstractContainerTest {
 
@@ -64,6 +59,28 @@ class SpecialRepositoryTest extends AbstractContainerTest {
 
     @Test
     void should_return_all_specials() {
-        specialRepository.findAll().forEach(System.out::println);
+        var expected = List.of(STRENGTH, PERCEPTION, ENDURANCE, CHARISMA, INTELLIGENCE, AGILITY, LUCK);
+        var actual = specialRepository.findAll();
+        MatcherAssert.assertThat(actual, Matchers.contains(expected.toArray()));
+    }
+
+    @Test
+    @Transactional
+        // for roll back the changes made in tests
+    void should_return_saved_special() {
+        var expected = PREPARED_FOR_CREATE_SPECIAL;
+        specialRepository.save(expected);
+        var actual = specialRepository.findById(expected.getId())
+                .orElseThrow();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Transactional
+        // for roll back the changes made in tests
+    void should_remove_special_by_id() {
+        specialRepository.deleteById(STRENGTH.getId());
+        var actual = specialRepository.findAll();
+        MatcherAssert.assertThat(actual, Matchers.not(Matchers.contains(STRENGTH)));
     }
 }
