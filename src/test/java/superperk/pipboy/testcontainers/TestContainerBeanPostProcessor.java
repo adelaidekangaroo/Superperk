@@ -21,7 +21,7 @@ public class TestContainerBeanPostProcessor implements BeanPostProcessor {
                     if (object instanceof SpringTestContainer springTestContainer) {
                         if (field.isAnnotationPresent(ContainerImage.class)) {
                             var containerImage = field.getAnnotation(ContainerImage.class);
-                            springTestContainer.setVersion(containerImage.dockerImage());
+                            springTestContainer.setVersion(containerImage.image());
                         }
                         if (field.isAnnotationPresent(ContainerReused.class)) {
                             var containerReused = field.getAnnotation(ContainerReused.class);

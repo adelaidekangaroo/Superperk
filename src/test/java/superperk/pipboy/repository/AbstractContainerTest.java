@@ -34,7 +34,7 @@ import superperk.pipboy.testcontainers.SpringTestContainers;
  *
  * @SpringTestContainers public class AbstractContainerTest extends ApplicationTest {
  * @Autowired
- * @ContainerImage(dockerImage = "postgres:14.5")
+ * @ContainerImage(image = "postgres:14.5")
  * @ContainerReused(byProfiles = "test")
  * public PostgresTestContainer postgresTestContainer;
  * }
@@ -44,7 +44,7 @@ import superperk.pipboy.testcontainers.SpringTestContainers;
 public class AbstractContainerTest extends ApplicationTest {
 
     @Autowired
-    @ContainerImage(dockerImage = "postgres:14.5")
+    @ContainerImage(image = "postgres:14.5")
     @ContainerReused(byProfiles = "test")
     public PostgresTestContainer postgresTestContainer;
 
