@@ -24,6 +24,7 @@
         <java.version>18</java.version>
         <!-- DEPENDENCY VERSIONS -->
         <testcontainers.version>1.17.3</testcontainers.version>
+        <snakeyaml.version>1.32</snakeyaml.version>
         <!-- /DEPENDENCY VERSIONS -->
         <!-- PLUGIN VERSIONS -->
         <spring.boot.maven.plugin.version>2.7.1</spring.boot.maven.plugin.version>
@@ -40,6 +41,11 @@
                 <version>${testcontainers.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
