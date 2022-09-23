@@ -1,6 +1,4 @@
-<div align="center">
-  <h1>Superperk</h1>
-</div>
+# Superperk
 
 <p align="center">
   <img src="docs/tenor.gif" />
