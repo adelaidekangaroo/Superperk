@@ -6,20 +6,42 @@ import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+import org.testcontainers.junit.jupiter.Testcontainers;
 import superperk.pipboy.model.Special;
+import superperk.pipboy.testcontainers.ContainerImage;
+import superperk.pipboy.testcontainers.ContainerReused;
+import superperk.pipboy.testcontainers.v2.Contr;
+import superperk.pipboy.testcontainers.v2.PostgresContainer;
 
 import java.util.List;
 
 import static superperk.pipboy.repository.SpecialDataTest.*;
 
-class SpecialRepositoryTest extends AbstractContainerTest {
+@SpringBootTest
+@ActiveProfiles("test")
+@Contr
+@Testcontainers
+class SpecialRepositoryTest {
+
+
+    @ContainerImage(image = "postgres:14.3") // optional
+    @ContainerReused(byProfiles = "test") // optional
+    private PostgresContainer postgresContainer; // container starts automatically
+
+    @Autowired
+    public void setPostgresContainer(PostgresContainer postgresContainer) {
+        System.out.println(":POST!");
+        this.postgresContainer = postgresContainer;
+    }
 
     @Autowired
     private SpecialRepository specialRepository;
 
     @Rule // reset changes after each test
-    private final Special PREPARED_FOR_CREATE_SPECIAL = Special.builder()
+    public final Special PREPARED_FOR_CREATE_SPECIAL = Special.builder()
             .title("New special")
             .description("New special description")
             .build();

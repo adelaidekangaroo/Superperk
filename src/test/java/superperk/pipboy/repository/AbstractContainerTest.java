@@ -40,15 +40,15 @@ import superperk.pipboy.testcontainers.SpringTestContainers;
  * }
  *}
  */
-@SpringTestContainers
-public class AbstractContainerTest extends ApplicationTest {
+//@SpringTestContainers
+class AbstractContainerTest extends ApplicationTest {
 
     @Autowired
     @ContainerImage(image = "postgres:14.5")
     @ContainerReused(byProfiles = "test")
     public PostgresTestContainer postgresTestContainer;
 
-    @Test
+  //  @Test
     void container_must_be_launched() {
         Assertions.assertTrue(postgresTestContainer.getContainer().isRunning());
     }
