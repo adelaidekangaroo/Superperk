@@ -1,3 +1,5 @@
 # Superperk
 
-![Alt Text](docs/tenor.gif)
+<p align="center">
+  <img src="docs/tenor.gif" />
+</p>
