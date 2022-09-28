@@ -25,7 +25,7 @@ public class SpecialRepositoryTest {
 
     @SpringContainer
     @SpringContainerImage(image = "postgres:14.3") // optional
-    @SpringContainerReuse(byProfiles = "test") // optional
+    @SpringContainerReuse(byProfiles = {"test"}) // optional
     private PostgresContainer<?> postgresContainer; // container starts automatically
 
     @Autowired
