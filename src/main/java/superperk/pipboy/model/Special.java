@@ -18,6 +18,7 @@ import javax.persistence.*;
 public final class Special {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @Column(columnDefinition = "serial")
     private Long id;
     private String title;
     private String description;

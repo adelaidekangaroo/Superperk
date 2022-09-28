@@ -1,12 +1,12 @@
-package superperk.pipboy.testcontainers;
+package superperk.pipboy.testcontainers.v2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ContainerImage {
-    String image();
+public @interface SpringContainerDependencies {
+    Class<?>[] initBefore() default {Void.class};
 }

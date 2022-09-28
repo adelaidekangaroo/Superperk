@@ -1,13 +1,6 @@
 package superperk.pipboy.repository;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import superperk.pipboy.ApplicationTest;
-import superperk.pipboy.testcontainers.ContainerImage;
-import superperk.pipboy.testcontainers.ContainerReused;
-import superperk.pipboy.testcontainers.PostgresTestContainer;
-import superperk.pipboy.testcontainers.SpringTestContainers;
 
 /**
  * Аs it was before -
@@ -32,10 +25,10 @@ import superperk.pipboy.testcontainers.SpringTestContainers;
  * How is it now -
  * {@snippet :
  *
- * @SpringTestContainers public class AbstractContainerTest extends ApplicationTest {
+ * import superperk.pipboy.testcontainers.v2.SpringContainerImage;import superperk.pipboy.testcontainers.v2.SpringContainerReuse;@SpringTestContainers public class AbstractContainerTest extends ApplicationTest {
  * @Autowired
- * @ContainerImage(image = "postgres:14.5")
- * @ContainerReused(byProfiles = "test")
+ * @SpringContainerImage(image = "postgres:14.5")
+ * @SpringContainerReuse(byProfiles = "test")
  * public PostgresTestContainer postgresTestContainer;
  * }
  *}
@@ -43,14 +36,5 @@ import superperk.pipboy.testcontainers.SpringTestContainers;
 //@SpringTestContainers
 class AbstractContainerTest extends ApplicationTest {
 
-    @Autowired
-    @ContainerImage(image = "postgres:14.5")
-    @ContainerReused(byProfiles = "test")
-    public PostgresTestContainer postgresTestContainer;
-
-  //  @Test
-    void container_must_be_launched() {
-        Assertions.assertTrue(postgresTestContainer.getContainer().isRunning());
-    }
 
 }

@@ -1,12 +1,14 @@
 package superperk.pipboy.testcontainers.v2;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
+@Autowired
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ContainerDependencies {
-    Class<?>[] initBefore() default {Void.class};
+public @interface SpringContainer {
 }
