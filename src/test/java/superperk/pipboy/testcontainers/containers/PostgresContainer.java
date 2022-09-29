@@ -23,7 +23,7 @@ public class PostgresContainer<SELF extends PostgresContainer<SELF>>
     @PostConstruct
     public void postConstruct() {
         container = new PostgreSQLContainer<>(DockerImageName.parse(version));
-        container.withReuse(true);
+        container.withReuse(reuse);
         container.start();
 
         System.setProperty("spring.datasource.url", container.getJdbcUrl());
