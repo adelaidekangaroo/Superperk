@@ -25,7 +25,7 @@ import superperk.pipboy.ApplicationTest;
  * How is it now -
  * {@snippet :
  *
- * import superperk.pipboy.testcontainers.v2.SpringContainerImage;import superperk.pipboy.testcontainers.v2.SpringContainerReuse;@SpringTestContainers public class AbstractContainerTest extends ApplicationTest {
+ * import superperk.pipboy.testcontainers.annotations.SpringContainerImage;import superperk.pipboy.testcontainers.annotations.SpringContainerReuse;@SpringTestContainers public class AbstractContainerTest extends ApplicationTest {
  * @Autowired
  * @SpringContainerImage(image = "postgres:14.5")
  * @SpringContainerReuse(byProfiles = "test")

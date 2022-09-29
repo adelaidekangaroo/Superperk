@@ -10,10 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import superperk.pipboy.model.Special;
-import superperk.pipboy.testcontainers.v2.PostgresContainer;
-import superperk.pipboy.testcontainers.v2.SpringContainer;
-import superperk.pipboy.testcontainers.v2.SpringContainerImage;
-import superperk.pipboy.testcontainers.v2.SpringContainerReuse;
+import superperk.pipboy.testcontainers.annotations.SpringContainer;
+import superperk.pipboy.testcontainers.annotations.SpringContainerImage;
+import superperk.pipboy.testcontainers.annotations.SpringContainerReuse;
+import superperk.pipboy.testcontainers.containers.PostgresContainer;
 
 import java.util.List;
 

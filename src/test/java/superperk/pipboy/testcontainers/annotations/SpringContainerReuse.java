@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.v2;
+package superperk.pipboy.testcontainers.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,8 +1,12 @@
-package superperk.pipboy.testcontainers.v2;
+package superperk.pipboy.testcontainers.handlers;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import superperk.pipboy.testcontainers.containers.Container;
+import superperk.pipboy.testcontainers.parameters.ContainerImageParameter;
+import superperk.pipboy.testcontainers.parameters.ContainerParameter;
+import superperk.pipboy.testcontainers.parameters.ContainerReuseParameter;
 
 import java.util.List;
 import java.util.Map;

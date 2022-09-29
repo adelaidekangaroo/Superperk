@@ -1,10 +1,15 @@
-package superperk.pipboy.testcontainers.v2;
+package superperk.pipboy.testcontainers.handlers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.MergedContextConfiguration;
+import superperk.pipboy.testcontainers.annotations.SpringContainerImage;
+import superperk.pipboy.testcontainers.annotations.SpringContainerReuse;
+import superperk.pipboy.testcontainers.parameters.ContainerImageParameter;
+import superperk.pipboy.testcontainers.parameters.ContainerParameter;
+import superperk.pipboy.testcontainers.parameters.ContainerReuseParameter;
 
 import java.lang.annotation.Annotation;
 import java.util.*;

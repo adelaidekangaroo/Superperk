@@ -1,8 +1,9 @@
-package superperk.pipboy.testcontainers.v2;
+package superperk.pipboy.testcontainers.containers;
 
 import org.springframework.stereotype.Component;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
+import superperk.pipboy.testcontainers.annotations.SpringContainerDependencies;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

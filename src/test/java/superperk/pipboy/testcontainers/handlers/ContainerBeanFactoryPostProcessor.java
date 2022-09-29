@@ -1,9 +1,11 @@
-package superperk.pipboy.testcontainers.v2;
+package superperk.pipboy.testcontainers.handlers;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
+import superperk.pipboy.testcontainers.annotations.SpringContainerDependencies;
+import superperk.pipboy.testcontainers.parameters.ContainerParameter;
 
 import java.util.Arrays;
 import java.util.List;
