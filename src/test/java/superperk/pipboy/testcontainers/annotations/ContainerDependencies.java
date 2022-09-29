@@ -5,8 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SpringContainerReuse {
-    String[] byProfiles();
+public @interface ContainerDependencies {
+    Class<?>[] initBefore() default {Void.class};
 }

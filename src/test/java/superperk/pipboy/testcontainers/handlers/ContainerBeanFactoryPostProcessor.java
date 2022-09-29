@@ -4,7 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
-import superperk.pipboy.testcontainers.annotations.SpringContainerDependencies;
+import superperk.pipboy.testcontainers.annotations.ContainerDependencies;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerParameter;
 
 import java.util.Arrays;
@@ -23,8 +23,8 @@ public class ContainerBeanFactoryPostProcessor implements BeanFactoryPostProcess
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        Arrays.stream(beanFactory.getBeanNamesForAnnotation(SpringContainerDependencies.class)).forEach(i -> {
-            var myBeanAnn = beanFactory.findAnnotationOnBean(i, SpringContainerDependencies.class);
+        Arrays.stream(beanFactory.getBeanNamesForAnnotation(ContainerDependencies.class)).forEach(i -> {
+            var myBeanAnn = beanFactory.findAnnotationOnBean(i, ContainerDependencies.class);
             var myFirstInitBeanClass = beanFactory.getType(i);
             var mySecondInitBeanClass = myBeanAnn.initBefore();
             Arrays.stream(mySecondInitBeanClass).forEach(d -> {

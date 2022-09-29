@@ -5,8 +5,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.MergedContextConfiguration;
-import superperk.pipboy.testcontainers.annotations.SpringContainerImage;
-import superperk.pipboy.testcontainers.annotations.SpringContainerReuse;
+import superperk.pipboy.testcontainers.annotations.ContainerImage;
+import superperk.pipboy.testcontainers.annotations.ContainerReuse;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageParameter;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerParameter;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseParameter;
@@ -33,13 +33,13 @@ public class ContainerContextCustomizer implements ContextCustomizer {
         containerAnnotations.forEach((k, v) -> {
             List<ContainerParameter> parameters = new ArrayList<>();
             v.forEach(annotation -> {
-                if (annotation instanceof SpringContainerImage springContainerImage) {
-                    parameters.add(new ContainerImageParameter(springContainerImage.image()));
-                } else if (annotation instanceof SpringContainerReuse springContainerReuse) {
+                if (annotation instanceof ContainerImage containerImage) {
+                    parameters.add(new ContainerImageParameter(containerImage.image()));
+                } else if (annotation instanceof ContainerReuse containerReuse) {
                     parameters.add(new ContainerReuseParameter(
                             isReuse(
                                     environment.getActiveProfiles(),
-                                    springContainerReuse.byProfiles()
+                                    containerReuse.byProfiles()
                             )
                     ));
                 }

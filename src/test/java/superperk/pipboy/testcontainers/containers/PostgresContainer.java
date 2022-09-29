@@ -3,14 +3,14 @@ package superperk.pipboy.testcontainers.containers;
 import org.springframework.stereotype.Component;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
-import superperk.pipboy.testcontainers.annotations.SpringContainerDependencies;
+import superperk.pipboy.testcontainers.annotations.ContainerDependencies;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
 @Component
-@SpringContainerDependencies(initBefore = DataSource.class)
+@ContainerDependencies(initBefore = DataSource.class)
 public class PostgresContainer<SELF extends PostgresContainer<SELF>>
         // extends PostgreSQLContainer<SELF>
         implements Container {

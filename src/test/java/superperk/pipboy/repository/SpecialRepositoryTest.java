@@ -10,9 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import superperk.pipboy.model.Special;
-import superperk.pipboy.testcontainers.annotations.SpringContainer;
-import superperk.pipboy.testcontainers.annotations.SpringContainerImage;
-import superperk.pipboy.testcontainers.annotations.SpringContainerReuse;
+import superperk.pipboy.testcontainers.annotations.Container;
+import superperk.pipboy.testcontainers.annotations.ContainerImage;
+import superperk.pipboy.testcontainers.annotations.ContainerReuse;
 import superperk.pipboy.testcontainers.containers.PostgresContainer;
 
 import java.util.List;
@@ -23,9 +23,9 @@ import static superperk.pipboy.repository.SpecialDataTest.*;
 @ActiveProfiles("test")
 public class SpecialRepositoryTest {
 
-    @SpringContainer
-    @SpringContainerImage(image = "postgres:14.3") // optional
-    @SpringContainerReuse(byProfiles = {"test"}) // optional
+    @Container
+    @ContainerImage(image = "postgres:14.3") // optional
+    @ContainerReuse(byProfiles = {"test"}) // optional
     private PostgresContainer<?> postgresContainer; // container starts automatically
 
     @Autowired

@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 @Autowired
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SpringContainer {
+public @interface Container {
 }
