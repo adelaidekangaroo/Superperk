@@ -9,14 +9,14 @@ public abstract class AbstractGenericContainer implements Container {
     protected String version = "postgres:latest";
     protected boolean reuse = false;
 
-    protected abstract GenericContainer getContainer();
+    protected abstract GenericContainer getSourceContainer();
 
     @PostConstruct
     public abstract void init();
 
     @PreDestroy
     public void preDestroy() {
-        if (!reuse) getContainer().stop();
+        if (!reuse) getSourceContainer().stop();
     }
 
     @Override

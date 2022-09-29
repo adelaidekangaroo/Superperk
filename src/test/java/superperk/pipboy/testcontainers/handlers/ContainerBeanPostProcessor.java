@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Задает настройки из ContainerSettings конкретному бину контейнеру
  */
-public class ContainerBeanPostProcessor implements BeanPostProcessor {
+public final class ContainerBeanPostProcessor implements BeanPostProcessor {
 
     private final Map<String, List<ContainerSetting>> containerParameters;
 

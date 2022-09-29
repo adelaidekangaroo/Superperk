@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 /**
  * Получение доступа к спринг контексту, к активным профилям через окружение, и регистрация BeanFactoryPostProcessor
  */
-public class ContainerContextCustomizer implements ContextCustomizer {
+public final class ContainerContextCustomizer implements ContextCustomizer {
 
     private final Map<String, List<ContainerSetting>> CONTAINER_SETTINGS = new HashMap<>();
     private final Map<String, List<Annotation>> containerAnnotations;

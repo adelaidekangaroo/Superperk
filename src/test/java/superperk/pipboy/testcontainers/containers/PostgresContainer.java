@@ -10,23 +10,23 @@ import javax.sql.DataSource;
 
 @Component
 @ContainerDependencies(initBefore = DataSource.class)
-public class PostgresContainer extends AbstractGenericContainer implements Container {
+public final class PostgresContainer extends AbstractGenericContainer implements Container {
 
-    private PostgreSQLContainer<?> container;
+    private PostgreSQLContainer<?> sourceContainer;
 
     @Override
     public void init() {
-        container = new PostgreSQLContainer<>(DockerImageName.parse(version));
-        container.withReuse(reuse);
-        container.start();
+        sourceContainer = new PostgreSQLContainer<>(DockerImageName.parse(version));
+        sourceContainer.withReuse(reuse);
+        sourceContainer.start();
 
-        System.setProperty("spring.datasource.url", container.getJdbcUrl());
-        System.setProperty("spring.datasource.username", container.getUsername());
-        System.setProperty("spring.datasource.password", container.getPassword());
+        System.setProperty("spring.datasource.url", sourceContainer.getJdbcUrl());
+        System.setProperty("spring.datasource.username", sourceContainer.getUsername());
+        System.setProperty("spring.datasource.password", sourceContainer.getPassword());
     }
 
     @Override
-    protected GenericContainer getContainer() {
-        return container;
+    protected GenericContainer getSourceContainer() {
+        return sourceContainer;
     }
 }

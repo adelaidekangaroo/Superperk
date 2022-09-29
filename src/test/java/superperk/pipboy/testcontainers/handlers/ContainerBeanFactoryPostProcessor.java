@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Определение порядка создая бинов и регистрация ContainerBeanPostProcessor
  */
-public class ContainerBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
+public final class ContainerBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
 
     private final Map<String, List<ContainerSetting>> containerParameters;
 

@@ -20,7 +20,7 @@ import java.util.Map;
  * Сканирует тест класс на предмет наличия объявленных контейнеров и собирает настройки по каждому их них.
  * Создает ContainerContextCustomizer.
  */
-public class ContainerContextCustomizerFactory implements ContextCustomizerFactory {
+public final class ContainerContextCustomizerFactory implements ContextCustomizerFactory {
 
     /**
      * Все container аннотации сгруппированные по бинам
