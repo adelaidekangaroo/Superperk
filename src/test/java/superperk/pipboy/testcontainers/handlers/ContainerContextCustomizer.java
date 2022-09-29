@@ -7,9 +7,9 @@ import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.MergedContextConfiguration;
 import superperk.pipboy.testcontainers.annotations.SpringContainerImage;
 import superperk.pipboy.testcontainers.annotations.SpringContainerReuse;
-import superperk.pipboy.testcontainers.parameters.ContainerImageParameter;
-import superperk.pipboy.testcontainers.parameters.ContainerParameter;
-import superperk.pipboy.testcontainers.parameters.ContainerReuseParameter;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageParameter;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerParameter;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseParameter;
 
 import java.lang.annotation.Annotation;
 import java.util.*;

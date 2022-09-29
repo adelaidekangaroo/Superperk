@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.parameters;
+package superperk.pipboy.testcontainers.handlers.parameters;
 
 public record ContainerImageParameter(String image) implements ContainerParameter {
 }

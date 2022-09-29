@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.parameters;
+package superperk.pipboy.testcontainers.handlers.parameters;
 
 sealed public interface ContainerParameter permits ContainerImageParameter, ContainerReuseParameter {
 }
