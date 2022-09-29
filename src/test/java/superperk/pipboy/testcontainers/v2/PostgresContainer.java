@@ -2,9 +2,7 @@ package superperk.pipboy.testcontainers.v2;
 
 import org.springframework.stereotype.Component;
 import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.utility.DockerImageName;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
@@ -19,7 +17,7 @@ public class PostgresContainer<SELF extends PostgresContainer<SELF>>
 
     private PostgreSQLContainer<?> container;
 
-    @PostConstruct
+    /*@PostConstruct
     public void postConstruct() {
         container = new PostgreSQLContainer<>(DockerImageName.parse(version));
         container.withReuse(true);
@@ -28,7 +26,8 @@ public class PostgresContainer<SELF extends PostgresContainer<SELF>>
         System.setProperty("spring.datasource.url", container.getJdbcUrl());
         System.setProperty("spring.datasource.username", container.getUsername());
         System.setProperty("spring.datasource.password", container.getPassword());
-    }
+    }*/
+
 
     @PreDestroy
     public void preDestroy() {

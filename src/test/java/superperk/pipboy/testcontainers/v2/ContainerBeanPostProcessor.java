@@ -20,9 +20,10 @@ public class ContainerBeanPostProcessor implements BeanPostProcessor {
         var b = containerParameters.containsKey(beanName);
         if (b && bean instanceof Container container) {
             containerParameters.get(beanName).forEach(i -> {
-                switch (i) {
-                    case ContainerImageParameter cip -> container.setVersion(cip.image());
-                    case ContainerReuseParameter crp -> container.setReuse(crp.reuse());
+                if (i instanceof ContainerImageParameter cip) {
+                    container.setVersion(cip.image());
+                } else if (i instanceof ContainerReuseParameter crp) {
+                    container.setReuse(crp.reuse());
                 }
             });
         }
