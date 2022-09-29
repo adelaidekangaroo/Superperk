@@ -31,7 +31,6 @@ public class PostgresContainer<SELF extends PostgresContainer<SELF>>
         System.setProperty("spring.datasource.password", container.getPassword());
     }
 
-
     @PreDestroy
     public void preDestroy() {
         if (!reuse) container.stop();
