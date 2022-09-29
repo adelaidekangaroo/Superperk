@@ -12,31 +12,33 @@ import java.lang.annotation.Annotation;
 import java.util.*;
 
 /**
- *
+ * Сканирует тест класс на предмет наличия объявленных контейнеров и собирает настройки по каждому их них.
  */
 public class ContainerContextCustomizerFactory implements ContextCustomizerFactory {
 
+    /**
+     * Все container аннотации сгруппированные по бинам
+     */
     private final Map<String, List<Annotation>> containerAnnotations = new HashMap<>();
 
     @Override
     public ContainerContextCustomizer createContextCustomizer(@NotNull Class<?> testClass,
                                                               @NotNull List<ContextConfigurationAttributes> configAttributes) {
-        ReflectionUtils.doWithFields(testClass,
-                field -> {
-                    if (Container.class.isAssignableFrom(field.getType())) {
-                        field.setAccessible(true);
-                        var beanName = field.getName();
-                        List<Annotation> parameters = new ArrayList<>();
-                        Arrays.stream(field.getAnnotations()).toList().forEach(i -> {
-                            if (i instanceof ContainerImage) {
-                                parameters.add(i);
-                            } else if (i instanceof ContainerReuse) {
-                                parameters.add(i);
-                            }
-                        });
-                        containerAnnotations.put(beanName, parameters);
+        ReflectionUtils.doWithFields(testClass, field -> {
+            if (Container.class.isAssignableFrom(field.getType())) { // контейнер должен реализовывать Container
+                field.setAccessible(true);
+                var beanName = field.getName();
+                List<Annotation> annotations = new ArrayList<>();
+                Arrays.stream(field.getAnnotations()).forEach(annotation -> {
+                    if (annotation instanceof ContainerImage) {
+                        annotations.add(annotation);
+                    } else if (annotation instanceof ContainerReuse) {
+                        annotations.add(annotation);
                     }
                 });
+                containerAnnotations.put(beanName, annotations);
+            }
+        });
         return new ContainerContextCustomizer(containerAnnotations);
     }
 }
