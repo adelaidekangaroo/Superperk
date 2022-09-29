@@ -7,12 +7,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import superperk.pipboy.model.Special;
-import superperk.pipboy.testcontainers.annotations.Container;
 import superperk.pipboy.testcontainers.annotations.ContainerImage;
 import superperk.pipboy.testcontainers.annotations.ContainerReuse;
+import superperk.pipboy.testcontainers.annotations.SpringContainer;
 import superperk.pipboy.testcontainers.containers.PostgresContainer;
 
 import java.util.List;
@@ -20,12 +19,11 @@ import java.util.List;
 import static superperk.pipboy.repository.SpecialDataTest.*;
 
 @SpringBootTest
-@ActiveProfiles("test")
 public class SpecialRepositoryTest {
 
-    @Container
-    @ContainerImage(image = "postgres:14.3") // optional
-    @ContainerReuse(byProfiles = {"test"}) // optional
+    @SpringContainer
+    @ContainerImage(image = "postgres:14.3")
+    @ContainerReuse(byProfiles = {"test"})
     private PostgresContainer<?> postgresContainer; // container starts automatically
 
     @Autowired
@@ -38,12 +36,10 @@ public class SpecialRepositoryTest {
             .build();
 
     @Test
-    void should_return_all_specials() throws InterruptedException {
+    void should_return_all_specials() {
         var expected = List.of(STRENGTH, PERCEPTION, ENDURANCE, CHARISMA, INTELLIGENCE, AGILITY, LUCK);
         var actual = specialRepository.findAll();
         MatcherAssert.assertThat(actual, Matchers.contains(expected.toArray()));
-        Thread.sleep(1000);
-
     }
 
     @Test

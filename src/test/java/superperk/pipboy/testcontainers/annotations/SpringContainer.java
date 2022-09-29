@@ -10,5 +10,6 @@ import java.lang.annotation.Target;
 @Autowired
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Container {
+public @interface SpringContainer {
+    String beanName() default "";
 }

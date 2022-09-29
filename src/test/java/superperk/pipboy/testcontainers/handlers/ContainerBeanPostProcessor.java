@@ -4,32 +4,36 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import superperk.pipboy.testcontainers.containers.Container;
-import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageParameter;
-import superperk.pipboy.testcontainers.handlers.parameters.ContainerParameter;
-import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseParameter;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageSetting;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseSetting;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerSetting;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Задает настройки из ContainerSettings конкретному бину контейнеру
+ */
 public class ContainerBeanPostProcessor implements BeanPostProcessor {
 
-    private final Map<String, List<ContainerParameter>> containerParameters;
+    private final Map<String, List<ContainerSetting>> containerParameters;
 
-    public ContainerBeanPostProcessor(Map<String, List<ContainerParameter>> containerParameters) {
+    public ContainerBeanPostProcessor(Map<String, List<ContainerSetting>> containerParameters) {
         this.containerParameters = containerParameters;
     }
 
     @Override
     public Object postProcessBeforeInitialization(@NotNull Object bean, @NotNull String beanName) throws BeansException {
-        var b = containerParameters.containsKey(beanName);
-        if (b && bean instanceof Container container) {
-            containerParameters.get(beanName).forEach(i -> {
-                if (i instanceof ContainerImageParameter cip) {
-                    container.setVersion(cip.image());
-                } else if (i instanceof ContainerReuseParameter crp) {
-                    container.setReuse(crp.reuse());
-                }
-            });
+        if (containerParameters.containsKey(beanName)) {
+            var container = (Container) bean;
+            containerParameters.get(beanName)
+                    .forEach(containerSetting -> {
+                        if (containerSetting instanceof ContainerImageSetting cip) {
+                            container.setVersion(cip.image());
+                        } else if (containerSetting instanceof ContainerReuseSetting crp) {
+                            container.setReuse(crp.reuse());
+                        }
+                    });
         }
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }

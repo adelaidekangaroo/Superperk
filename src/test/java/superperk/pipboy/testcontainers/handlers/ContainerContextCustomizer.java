@@ -1,52 +1,57 @@
 package superperk.pipboy.testcontainers.handlers;
 
-import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.MergedContextConfiguration;
 import superperk.pipboy.testcontainers.annotations.ContainerImage;
 import superperk.pipboy.testcontainers.annotations.ContainerReuse;
-import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageParameter;
-import superperk.pipboy.testcontainers.handlers.parameters.ContainerParameter;
-import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseParameter;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageSetting;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseSetting;
+import superperk.pipboy.testcontainers.handlers.parameters.ContainerSetting;
 
 import java.lang.annotation.Annotation;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Получение доступа к спринг контексту, к активным профилям через окружение, и регистрация BeanFactoryPostProcessor
  */
-@Slf4j
 public class ContainerContextCustomizer implements ContextCustomizer {
 
-    private final Map<String, List<ContainerParameter>> containerParameters = new HashMap<>();
+    private final Map<String, List<ContainerSetting>> CONTAINER_SETTINGS = new HashMap<>();
     private final Map<String, List<Annotation>> containerAnnotations;
 
-    public ContainerContextCustomizer(Map<String, List<Annotation>> containerAnnotations) {
+    public ContainerContextCustomizer(@NotNull Map<String, List<Annotation>> containerAnnotations) {
         this.containerAnnotations = containerAnnotations;
     }
 
     @Override
-    public void customizeContext(ConfigurableApplicationContext context, MergedContextConfiguration mergedConfig) {
-        ConfigurableEnvironment environment = context.getEnvironment();
-        containerAnnotations.forEach((k, v) -> {
-            List<ContainerParameter> parameters = new ArrayList<>();
-            v.forEach(annotation -> {
-                if (annotation instanceof ContainerImage containerImage) {
-                    parameters.add(new ContainerImageParameter(containerImage.image()));
-                } else if (annotation instanceof ContainerReuse containerReuse) {
-                    parameters.add(new ContainerReuseParameter(
-                            isReuse(
-                                    environment.getActiveProfiles(),
-                                    containerReuse.byProfiles()
-                            )
-                    ));
-                }
-            });
-            containerParameters.put(k, parameters);
+    public void customizeContext(@NotNull ConfigurableApplicationContext context,
+                                 @NotNull MergedContextConfiguration mergedConfig) {
+        containerAnnotations.forEach((beanName, containerAnnotationsByBean) -> {
+            List<ContainerSetting> settings = containerAnnotationsByBean.stream()
+                    .filter(annotation ->
+                            annotation instanceof ContainerImage ||
+                                    annotation instanceof ContainerReuse)
+                    .map(annotation -> {
+                        if (annotation instanceof ContainerImage containerImage) {
+                            return new ContainerImageSetting(containerImage.image());
+                        } else if (annotation instanceof ContainerReuse containerReuse) {
+                            return new ContainerReuseSetting(
+                                    isReuse(context.getEnvironment().getActiveProfiles(), containerReuse.byProfiles())
+                            );
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
+                    })
+                    .collect(Collectors.toList());
+            CONTAINER_SETTINGS.put(beanName, settings);
         });
-        context.addBeanFactoryPostProcessor(new ContainerBeanFactoryPostProcessor(containerParameters));
+        context.addBeanFactoryPostProcessor(new ContainerBeanFactoryPostProcessor(CONTAINER_SETTINGS));
     }
 
     private boolean isReuse(String[] activeProfiles, String[] reuseProfiles) {
