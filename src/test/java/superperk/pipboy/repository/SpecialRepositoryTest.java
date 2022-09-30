@@ -7,18 +7,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import superperk.pipboy.model.Special;
 import superperk.pipboy.testcontainers.annotations.ContainerImage;
 import superperk.pipboy.testcontainers.annotations.ContainerReuse;
 import superperk.pipboy.testcontainers.annotations.SpringContainer;
 import superperk.pipboy.testcontainers.containers.PostgresContainer;
+import superperk.pipboy.testcontainers.v3.EnablePostgresContainer;
 
 import java.util.List;
 
 import static superperk.pipboy.repository.SpecialDataTest.*;
 
 @SpringBootTest
+@ActiveProfiles("test")
+@EnablePostgresContainer(image = "postgres:14.3")
+@MongoInsert(location = "classpath:db/mongo/populate.json", collection = "special")
 public class SpecialRepositoryTest {
 
     @SpringContainer
