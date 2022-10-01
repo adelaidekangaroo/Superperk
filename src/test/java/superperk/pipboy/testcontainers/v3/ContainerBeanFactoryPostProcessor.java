@@ -24,7 +24,7 @@ public final class ContainerBeanFactoryPostProcessor implements BeanFactoryPostP
     }
 
     private static boolean filterContainerTypesWithDependencies(AbstractContainerDefinition abstractContainerDefinition) {
-        return abstractContainerDefinition.containerType
+        return abstractContainerDefinition.getContainerType()
                 .getBeanType()
                 .isAnnotationPresent(ContainerDependencies.class);
     }
@@ -60,8 +60,8 @@ public final class ContainerBeanFactoryPostProcessor implements BeanFactoryPostP
 
         public static ContainerBeanDefinition of(AbstractContainerDefinition abstractContainerDefinition) {
             return new ContainerBeanDefinition(
-                    abstractContainerDefinition.containerType.getBeanName(),
-                    abstractContainerDefinition.containerType.getBeanType().getAnnotation(ContainerDependencies.class)
+                    abstractContainerDefinition.getContainerType().getBeanName(),
+                    abstractContainerDefinition.getContainerType().getBeanType().getAnnotation(ContainerDependencies.class)
             );
         }
     }

@@ -16,6 +16,7 @@ public abstract class AbstractContainerDefinition {
         this.image = image;
     }
 
+    @Getter
     public enum ContainerType {
         POSTGRES(PostgresContainer.class);
       /*  MONGO(PostgresContainer.class),
@@ -29,14 +30,6 @@ public abstract class AbstractContainerDefinition {
         ContainerType(Class<?> beanType) {
             this.beanType = beanType;
             this.beanName = Introspector.decapitalize(beanType.getSimpleName());
-        }
-
-        public Class<?> getBeanType() {
-            return beanType;
-        }
-
-        public String getBeanName() {
-            return beanName;
         }
     }
 }
