@@ -7,7 +7,5 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 public @interface EnableMongoContainer {
-    String image() default "";
-
-    int port() default -1; // not implemented, yet
+    String image() default "mongo:latest";
 }

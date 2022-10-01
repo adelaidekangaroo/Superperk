@@ -8,6 +8,4 @@ import java.lang.annotation.*;
 @Inherited
 public @interface EnablePostgresContainer {
     String image() default "postgres:latest";
-
-    int port() default -1; // not implemented, yet
 }

@@ -10,10 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import superperk.pipboy.model.Special;
-import superperk.pipboy.testcontainers.annotations.ContainerImage;
-import superperk.pipboy.testcontainers.annotations.ContainerReuse;
-import superperk.pipboy.testcontainers.annotations.SpringContainer;
-import superperk.pipboy.testcontainers.containers.PostgresContainer;
 import superperk.pipboy.testcontainers.v3.EnablePostgresContainer;
 
 import java.util.List;
@@ -26,10 +22,10 @@ import static superperk.pipboy.repository.SpecialDataTest.*;
 @MongoInsert(location = "classpath:db/mongo/populate.json", collection = "special")
 public class SpecialRepositoryTest {
 
-    @SpringContainer
+   /* @SpringContainer
     @ContainerImage(image = "postgres:14.3")
     @ContainerReuse(byProfiles = {"test"})
-    private PostgresContainer postgresContainer; // container starts automatically
+    private PostgresContainer postgresContainer; // container starts automatically*/
 
     @Autowired
     private SpecialRepository specialRepository;
