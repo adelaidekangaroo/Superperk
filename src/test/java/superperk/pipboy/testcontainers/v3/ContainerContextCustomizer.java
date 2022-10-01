@@ -23,5 +23,4 @@ public final class ContainerContextCustomizer implements ContextCustomizer {
                                  @NotNull MergedContextConfiguration mergedConfig) {
         context.addBeanFactoryPostProcessor(new ContainerBeanFactoryPostProcessor(abstractContainerDefinitions));
     }
-
 }

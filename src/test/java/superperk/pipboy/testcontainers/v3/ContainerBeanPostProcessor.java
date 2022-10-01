@@ -3,7 +3,7 @@ package superperk.pipboy.testcontainers.v3;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import superperk.pipboy.testcontainers.containers.PostgresContainer;
+import superperk.pipboy.testcontainers.v3.containers.PostgresContainer;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.containers;
+package superperk.pipboy.testcontainers.v3.containers;
 
 import org.springframework.stereotype.Component;
 import org.testcontainers.containers.GenericContainer;

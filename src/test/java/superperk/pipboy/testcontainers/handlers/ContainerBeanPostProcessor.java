@@ -3,10 +3,10 @@ package superperk.pipboy.testcontainers.handlers;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import superperk.pipboy.testcontainers.containers.Container;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageSetting;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseSetting;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerSetting;
+import superperk.pipboy.testcontainers.v3.containers.Container;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.containers;
+package superperk.pipboy.testcontainers.v3.containers;
 
 public interface Container {
     void setVersion(String version);

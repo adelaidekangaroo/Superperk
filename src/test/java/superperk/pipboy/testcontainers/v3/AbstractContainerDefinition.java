@@ -1,7 +1,7 @@
 package superperk.pipboy.testcontainers.v3;
 
 import lombok.Getter;
-import superperk.pipboy.testcontainers.containers.PostgresContainer;
+import superperk.pipboy.testcontainers.v3.containers.PostgresContainer;
 
 import java.beans.Introspector;
 
