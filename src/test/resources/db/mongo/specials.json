@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Strength",
+    "description": "Brute physical strength. A high strength score is good for brutal characters."
+  },
+  {
+    "title": "Perception",
+    "description": "Perception is a measurement of your environmental and situational awareness."
+  },
+  {
+    "title": "Endurance",
+    "description": "Stamina and physical toughness. A character with a high Endurance will survive where others may not."
+  },
+  {
+    "title": "Charisma",
+    "description": "A combination of appearance and charm. A high Charisma is important for characters that want to influence people with words."
+  },
+  {
+    "title": "Intelligence",
+    "description": "Knowledge, wisdom and the ability to think quickly. A high Intelligence is important for any character."
+  },
+  {
+    "title": "Agility",
+    "description": "Coordination and the ability to move well. A high Agility is important for any active character."
+  },
+  {
+    "title": "Luck",
+    "description": "Fate. Karma. An extremely high or low Luck will affect the character - somehow. Events and situations will be changed by how lucky (or unlucky) your character is."
+  }
+]

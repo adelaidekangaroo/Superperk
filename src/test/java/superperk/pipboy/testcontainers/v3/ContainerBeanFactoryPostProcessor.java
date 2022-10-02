@@ -20,7 +20,6 @@ public final class ContainerBeanFactoryPostProcessor implements BeanFactoryPostP
     private final List<AbstractContainerDefinition> abstractContainerDefinitions;
 
     public ContainerBeanFactoryPostProcessor(@NotNull List<AbstractContainerDefinition> abstractContainerDefinitions) {
-        abstractContainerDefinitions.forEach(i -> System.out.println(i.image + " " + i.containerType));
         this.abstractContainerDefinitions = abstractContainerDefinitions;
     }
 

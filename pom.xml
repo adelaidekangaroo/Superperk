@@ -26,6 +26,7 @@
         <testcontainers.version>1.17.3</testcontainers.version>
         <snakeyaml.version>1.32</snakeyaml.version>
         <postgresql.version>42.5.0</postgresql.version>
+        <mongo.java.driver.version>3.12.11</mongo.java.driver.version>
         <!-- /DEPENDENCY VERSIONS -->
         <!-- PLUGIN VERSIONS -->
         <spring.boot.maven.plugin.version>2.7.1</spring.boot.maven.plugin.version>
@@ -67,6 +68,10 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <!-- DB -->
         <!-- TEST -->

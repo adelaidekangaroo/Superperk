@@ -1,5 +1,7 @@
 package superperk.pipboy.repository;
 
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import java.lang.annotation.*;
 
 @Repeatable(MongoInserts.class)
@@ -7,6 +9,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
+@ExtendWith(MongoExtension.class)
 public @interface MongoInsert {
     String location();
 
