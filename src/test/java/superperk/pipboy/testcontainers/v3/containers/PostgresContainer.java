@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 @Component
 @ContainerDependencies(initBefore = DataSource.class)
 public final class PostgresContainer extends AbstractGenericContainer implements Container {
-
     private PostgreSQLContainer<?> sourceContainer;
 
     @Override

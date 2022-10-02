@@ -1,6 +1,7 @@
 package superperk.pipboy.testcontainers.v3;
 
 import lombok.Getter;
+import superperk.pipboy.testcontainers.v3.containers.MongoContainer;
 import superperk.pipboy.testcontainers.v3.containers.PostgresContainer;
 
 import java.beans.Introspector;
@@ -18,9 +19,9 @@ public abstract class AbstractContainerDefinition {
 
     @Getter
     public enum ContainerType {
-        POSTGRES(PostgresContainer.class);
-      /*  MONGO(PostgresContainer.class),
-        REDIS(PostgresContainer.class),
+        POSTGRES(PostgresContainer.class),
+        MONGO(MongoContainer.class);
+       /*  REDIS(PostgresContainer.class),
         RABBIT(PostgresContainer.class),
         KAFKA(PostgresContainer.class);*/
 

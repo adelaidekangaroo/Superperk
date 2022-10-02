@@ -90,6 +90,11 @@
             <artifactId>postgresql</artifactId>
             <scope>test</scope> <!-- exclude after testing phase -->
         </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mongodb</artifactId>
+            <scope>test</scope> <!-- exclude after testing phase -->
+        </dependency>
         <!-- /TEST -->
         <!-- UTIL -->
         <dependency>

@@ -3,7 +3,7 @@ package superperk.pipboy.testcontainers.v3;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import superperk.pipboy.testcontainers.v3.containers.PostgresContainer;
+import superperk.pipboy.testcontainers.v3.containers.Container;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,13 +22,8 @@ public final class ContainerBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(@NotNull Object bean, @NotNull String beanName) throws BeansException {
         findAbstractContainerDefinitionByBeanName(beanName).ifPresent(abstractContainerDefinition -> {
-            switch (abstractContainerDefinition.getContainerType()) {
-                case POSTGRES -> {
-                    var postgresContainer = (PostgresContainer) bean;
-                    var postgresContainerDefinition = (PostgresContainerDefinition) abstractContainerDefinition;
-                    postgresContainer.setVersion(postgresContainerDefinition.getImage());
-                }
-            }
+            var container = (Container) bean;
+            container.setVersion(abstractContainerDefinition.getImage());
         });
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }

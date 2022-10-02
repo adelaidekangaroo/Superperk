@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 public abstract class AbstractGenericContainer implements Container {
-    protected String version = "postgres:latest";
+    protected String version;
     protected boolean reuse = true;
 
     protected abstract GenericContainer getSourceContainer();
