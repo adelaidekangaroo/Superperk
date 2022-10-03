@@ -3,7 +3,7 @@ package superperk.pipboy.testcontainers2.containers;
 import org.springframework.stereotype.Component;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
-import superperk.pipboy.testcontainers.annotations.ContainerDependencies;
+import superperk.pipboy.testcontainers2.annotations.ContainerDependencies;
 
 import javax.sql.DataSource;
 

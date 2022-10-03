@@ -4,8 +4,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
-import superperk.pipboy.testcontainers.annotations.ContainerDependencies;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerSetting;
+import superperk.pipboy.testcontainers2.annotations.ContainerDependencies;
 
 import java.util.Arrays;
 import java.util.List;
