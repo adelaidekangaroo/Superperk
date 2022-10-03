@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
-import superperk.pipboy.extensions.mongo.annotations.MongoInsert;
+import superperk.hug.extensions.annotations.MongoInsert;
+import superperk.hug.testcontainers.annotations.EnableMongoContainer;
+import superperk.hug.testcontainers.annotations.EnablePostgresContainer;
 import superperk.pipboy.model.Special;
-import superperk.pipboy.testcontainers2.annotations.EnableMongoContainer;
-import superperk.pipboy.testcontainers2.annotations.EnablePostgresContainer;
 
 import java.util.List;
 
