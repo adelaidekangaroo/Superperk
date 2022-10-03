@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
-public class MongoExtension implements BeforeAllCallback, AfterAllCallback {
+public final class MongoExtension implements BeforeAllCallback, AfterAllCallback {
 
     @Override
     public void beforeAll(ExtensionContext context) {
