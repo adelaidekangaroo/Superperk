@@ -1,4 +1,4 @@
-package superperk.pipboy.model;
+package superperk.pipboy.model.postgres;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

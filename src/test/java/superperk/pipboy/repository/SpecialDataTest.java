@@ -1,6 +1,6 @@
 package superperk.pipboy.repository;
 
-import superperk.pipboy.model.Special;
+import superperk.pipboy.model.postgres.Special;
 
 public final class SpecialDataTest {
 
