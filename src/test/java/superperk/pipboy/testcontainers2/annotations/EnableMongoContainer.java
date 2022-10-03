@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.v3;
+package superperk.pipboy.testcontainers2.annotations;
 
 import java.lang.annotation.*;
 

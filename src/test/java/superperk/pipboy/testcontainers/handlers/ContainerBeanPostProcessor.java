@@ -6,7 +6,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerImageSetting;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerReuseSetting;
 import superperk.pipboy.testcontainers.handlers.parameters.ContainerSetting;
-import superperk.pipboy.testcontainers.v3.containers.Container;
+import superperk.pipboy.testcontainers2.containers.Container;
 
 import java.util.List;
 import java.util.Map;

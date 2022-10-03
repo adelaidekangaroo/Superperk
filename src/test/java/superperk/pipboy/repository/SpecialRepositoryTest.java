@@ -10,8 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import superperk.pipboy.model.Special;
-import superperk.pipboy.testcontainers.v3.EnableMongoContainer;
-import superperk.pipboy.testcontainers.v3.EnablePostgresContainer;
+import superperk.pipboy.testcontainers2.annotations.EnableMongoContainer;
+import superperk.pipboy.testcontainers2.annotations.EnablePostgresContainer;
 
 import java.util.List;
 

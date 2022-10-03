@@ -1,7 +1,6 @@
-package superperk.pipboy.testcontainers.v3.containers;
+package superperk.pipboy.testcontainers2.containers;
 
 import org.springframework.stereotype.Component;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 import superperk.pipboy.testcontainers.annotations.ContainerDependencies;
@@ -10,7 +9,10 @@ import javax.sql.DataSource;
 
 @Component
 @ContainerDependencies(initBefore = DataSource.class)
-public final class PostgresContainer extends AbstractGenericContainer implements Container {
+public final class PostgresContainer
+        extends AbstractGenericContainer
+        implements Container {
+
     private PostgreSQLContainer<?> sourceContainer;
 
     @Override
@@ -25,7 +27,7 @@ public final class PostgresContainer extends AbstractGenericContainer implements
     }
 
     @Override
-    protected GenericContainer getSourceContainer() {
+    protected PostgreSQLContainer<?> getSourceContainer() {
         return sourceContainer;
     }
 }

@@ -1,7 +1,6 @@
-package superperk.pipboy.testcontainers.v3.containers;
+package superperk.pipboy.testcontainers2.containers;
 
 import org.springframework.stereotype.Component;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.utility.DockerImageName;
 
@@ -19,7 +18,7 @@ public final class MongoContainer extends AbstractGenericContainer implements Co
     }
 
     @Override
-    protected GenericContainer getSourceContainer() {
+    protected MongoDBContainer getSourceContainer() {
         return sourceContainer;
     }
 }

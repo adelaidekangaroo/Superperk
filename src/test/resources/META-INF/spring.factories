@@ -1,2 +1,2 @@
 org.springframework.test.context.ContextCustomizerFactory=\
-  superperk.pipboy.testcontainers.v3.ContainerContextCustomizerFactory
+  superperk.pipboy.testcontainers2.ContainerContextCustomizerFactory

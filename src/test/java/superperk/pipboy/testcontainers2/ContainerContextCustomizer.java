@@ -1,9 +1,10 @@
-package superperk.pipboy.testcontainers.v3;
+package superperk.pipboy.testcontainers2;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.MergedContextConfiguration;
+import superperk.pipboy.testcontainers2.definitions.AbstractContainerDefinition;
 
 import java.util.List;
 

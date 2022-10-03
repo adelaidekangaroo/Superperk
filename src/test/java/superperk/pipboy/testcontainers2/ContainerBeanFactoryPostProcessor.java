@@ -1,4 +1,4 @@
-package superperk.pipboy.testcontainers.v3;
+package superperk.pipboy.testcontainers2;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
 import superperk.pipboy.testcontainers.annotations.ContainerDependencies;
+import superperk.pipboy.testcontainers2.definitions.AbstractContainerDefinition;
 
 import java.util.Arrays;
 import java.util.List;

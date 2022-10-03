@@ -1,9 +1,10 @@
-package superperk.pipboy.testcontainers.v3;
+package superperk.pipboy.testcontainers2;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import superperk.pipboy.testcontainers.v3.containers.Container;
+import superperk.pipboy.testcontainers2.containers.Container;
+import superperk.pipboy.testcontainers2.definitions.AbstractContainerDefinition;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,8 +1,13 @@
-package superperk.pipboy.testcontainers.v3;
+package superperk.pipboy.testcontainers2;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.test.context.ContextConfigurationAttributes;
 import org.springframework.test.context.ContextCustomizerFactory;
+import superperk.pipboy.testcontainers2.annotations.EnableMongoContainer;
+import superperk.pipboy.testcontainers2.annotations.EnablePostgresContainer;
+import superperk.pipboy.testcontainers2.definitions.AbstractContainerDefinition;
+import superperk.pipboy.testcontainers2.definitions.MongoContainerDefinition;
+import superperk.pipboy.testcontainers2.definitions.PostgresContainerDefinition;
 
 import java.lang.annotation.Annotation;
 import java.util.Arrays;

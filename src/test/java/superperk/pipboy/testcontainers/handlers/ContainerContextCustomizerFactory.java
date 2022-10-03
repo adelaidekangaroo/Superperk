@@ -7,7 +7,7 @@ import org.springframework.util.ReflectionUtils;
 import superperk.pipboy.testcontainers.annotations.ContainerImage;
 import superperk.pipboy.testcontainers.annotations.ContainerReuse;
 import superperk.pipboy.testcontainers.annotations.SpringContainer;
-import superperk.pipboy.testcontainers.v3.containers.Container;
+import superperk.pipboy.testcontainers2.containers.Container;
 
 import java.beans.Introspector;
 import java.lang.annotation.Annotation;

@@ -1,8 +1,8 @@
-package superperk.pipboy.testcontainers.v3;
+package superperk.pipboy.testcontainers2.definitions;
 
 import lombok.Getter;
-import superperk.pipboy.testcontainers.v3.containers.MongoContainer;
-import superperk.pipboy.testcontainers.v3.containers.PostgresContainer;
+import superperk.pipboy.testcontainers2.containers.MongoContainer;
+import superperk.pipboy.testcontainers2.containers.PostgresContainer;
 
 import java.beans.Introspector;
 
