@@ -1,0 +1,15 @@
+INSERT INTO special (TITLE, DESCRIPTION)
+VALUES ('Strength',
+        'Brute physical strength. A high strength score is good for brutal characters.'),
+       ('Perception',
+        'Perception is a measurement of your environmental and situational awareness.'),
+       ('Endurance',
+        'Stamina and physical toughness. A character with a high Endurance will survive where others may not.'),
+       ('Charisma',
+        'A combination of appearance and charm. A high Charisma is important for characters that want to influence people with words.'),
+       ('Intelligence',
+        'Knowledge, wisdom and the ability to think quickly. A high Intelligence is important for any character.'),
+       ('Agility',
+        'Coordination and the ability to move well. A high Agility is important for any active character.'),
+       ('Luck',
+        'Fate. Karma. An extremely high or low Luck will affect the character - somehow. Events and situations will be changed by how lucky (or unlucky) your character is.');

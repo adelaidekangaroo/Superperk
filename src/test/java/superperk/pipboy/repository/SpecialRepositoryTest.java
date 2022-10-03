@@ -22,7 +22,7 @@ import static superperk.pipboy.repository.SpecialDataTest.*;
 @ActiveProfiles("test")
 @EnablePostgresContainer(image = "postgres:14.3")
 @EnableMongoContainer(image = "mongo:4.4.2")
-@MongoInsert(location = "db/mongo/specials.json", collection = "special")
+@MongoInsert(location = "db/mongo/populate/specials.json", collection = "special")
 public class SpecialRepositoryTest {
 
    /* @SpringContainer
