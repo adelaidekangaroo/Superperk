@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+import superperk.pipboy.extensions.mongo.annotations.MongoInsert;
 import superperk.pipboy.model.Special;
 import superperk.pipboy.testcontainers2.annotations.EnableMongoContainer;
 import superperk.pipboy.testcontainers2.annotations.EnablePostgresContainer;
