@@ -13,12 +13,13 @@ import superperk.hug.extensions.annotations.MongoInsert;
 import superperk.hug.testcontainers.annotations.EnableMongoContainer;
 import superperk.hug.testcontainers.annotations.EnablePostgresContainer;
 import superperk.pipboy.model.postgres.Special;
+import superperk.pipboy.repository.data.mongo.MongoSpecialDataTest;
 import superperk.pipboy.repository.mongo.MongoSpecialRepository;
 import superperk.pipboy.repository.postgres.PostgresSpecialRepository;
 
 import java.util.List;
 
-import static superperk.pipboy.repository.SpecialDataTest.*;
+import static superperk.pipboy.repository.data.postgres.PostgresSpecialDataTest.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -45,7 +46,22 @@ public class SpecialRepositoryTest {
             .build();
 
     @Test
-    void should_return_all_specials() {
+    void mongo_should_return_all_specials() {
+        var expected = List.of(
+                MongoSpecialDataTest.STRENGTH,
+                MongoSpecialDataTest.PERCEPTION,
+                MongoSpecialDataTest.ENDURANCE,
+                MongoSpecialDataTest.CHARISMA,
+                MongoSpecialDataTest.INTELLIGENCE,
+                MongoSpecialDataTest.AGILITY,
+                MongoSpecialDataTest.LUCK
+        );
+        var actual = mongoSpecialRepository.findAll();
+        MatcherAssert.assertThat(actual, Matchers.contains(expected.toArray()));
+    }
+
+    @Test
+    void postgres_should_return_all_specials() {
         var expected = List.of(STRENGTH, PERCEPTION, ENDURANCE, CHARISMA, INTELLIGENCE, AGILITY, LUCK);
         var actual = postgresSpecialRepository.findAll();
         MatcherAssert.assertThat(actual, Matchers.contains(expected.toArray()));

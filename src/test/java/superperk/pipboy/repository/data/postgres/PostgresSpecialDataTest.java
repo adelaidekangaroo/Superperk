@@ -1,8 +1,8 @@
-package superperk.pipboy.repository;
+package superperk.pipboy.repository.data.postgres;
 
 import superperk.pipboy.model.postgres.Special;
 
-public final class SpecialDataTest {
+public final class PostgresSpecialDataTest {
 
     public final static Special STRENGTH = Special.builder()
             .id(1L)
@@ -40,7 +40,7 @@ public final class SpecialDataTest {
             .description("Fate. Karma. An extremely high or low Luck will affect the character - somehow. Events and situations will be changed by how lucky (or unlucky) your character is.")
             .build();
 
-    private SpecialDataTest() {
+    private PostgresSpecialDataTest() {
     }
 
 }
